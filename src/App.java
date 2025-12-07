@@ -1,5 +1,6 @@
-import java.util.Arrays;
-import sorting.QuickSort;
+
+import searching.LinearSearch;
+
 
 public class App {
     public static void main(String[] args) {
@@ -10,7 +11,9 @@ public class App {
         // MergeSort.mergeSort(arr, 0, arr.length-1);
         // BubbleSort.bubbleSort(arr);
         // InsertionSort.insertionSort(arr);
-        QuickSort.quickSort(arr, 0, arr.length-1);
-        System.out.println(Arrays.toString(arr));
+        // QuickSort.quickSort(arr, 0, arr.length-1);
+        // System.out.println(Arrays.toString(arr)); // Output for sorting algorithms
+
+        System.out.println(LinearSearch.linearSearch(arr, 7));
     }
 }
