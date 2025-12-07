@@ -1,5 +1,5 @@
 import java.util.Arrays;
-import sorting.InsertionSort;
+import sorting.QuickSort;
 
 public class App {
     public static void main(String[] args) {
@@ -9,7 +9,8 @@ public class App {
         int[] arr = new int[]{9, 8, 7, 6, 5, 4, 3, 2, 1};
         // MergeSort.mergeSort(arr, 0, arr.length-1);
         // BubbleSort.bubbleSort(arr);
-        InsertionSort.insertionSort(arr);
+        // InsertionSort.insertionSort(arr);
+        QuickSort.quickSort(arr, 0, arr.length-1);
         System.out.println(Arrays.toString(arr));
     }
 }
