@@ -1,5 +1,7 @@
 
-import searching.LinearSearch;
+import searching.BinarySearch;
+
+
 
 
 public class App {
@@ -7,13 +9,13 @@ public class App {
         // System.out.println("Factorial of 10 = " + Factorial.factorial(10)); // output for factorial
         // System.out.println("10th term in fibonacciSeries = " + FibonacciSeries.fibonacciSeries(10)); // output for fibonacciSeries
 
-        int[] arr = new int[]{9, 8, 7, 6, 5, 4, 3, 2, 1};
+        int[] arr = new int[]{1, 2, 3, 4, 5, 6, 7, 8};
         // MergeSort.mergeSort(arr, 0, arr.length-1);
         // BubbleSort.bubbleSort(arr);
         // InsertionSort.insertionSort(arr);
         // QuickSort.quickSort(arr, 0, arr.length-1);
         // System.out.println(Arrays.toString(arr)); // Output for sorting algorithms
 
-        System.out.println(LinearSearch.linearSearch(arr, 7));
+        System.out.println(BinarySearch.binarySearch(arr, 0, arr.length-1, 5));
     }
 }

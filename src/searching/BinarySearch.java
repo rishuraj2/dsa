@@ -8,10 +8,12 @@ public class BinarySearch {
 
         int mid = (low + high) / 2;
 
-        if (target < arr[mid]) {
-            binarySearch(arr, low, mid-1, target);
+        if (target == arr[mid]) {
+            return mid;
+        } else if (target < arr[mid]) {
+            return binarySearch(arr, low, mid - 1, target);
         } else {
-            
+            return binarySearch(arr, mid+1, high, target);
         }
     }
 }
