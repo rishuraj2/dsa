@@ -4,32 +4,30 @@ import java.util.*;
 
 public class SortCharacterByFrequency {
     public static String frequencySort(String s) {
-        HashMap<Character, Integer> alphabetCountStore = new HashMap<>();
-
-        for(int i = 0; i < s.length(); i++) {
-            char alphabet = s.charAt(i);
-            alphabetCountStore.compute(alphabet, (key, value) -> 
-                value == null? 1 : value + 1
-            );
+        Map<Character, Integer> characterCountMap = new HashMap<>();
+        for (char alphabet : s.toCharArray()) {
+            characterCountMap.put(alphabet, characterCountMap.getOrDefault(alphabet, 0) + 1);
         }
 
-        s = "";
+        List<Character>[] bucket = new List[s.length() + 1];
 
-        for (int i = 0; i < alphabetCountStore.size(); i++) {
-            int highestFrequency = 0;
-            char highestFrequencyCharacter = '\0';
-            for (Map.Entry<Character, Integer> entry : alphabetCountStore.entrySet()) {
-                if (entry.getValue() > highestFrequency) {
-                    highestFrequency = entry.getValue();
-                    highestFrequencyCharacter = entry.getKey();
+        for (char alphabet : characterCountMap.keySet()) {
+            int frequency = characterCountMap.get(alphabet);
+            if (bucket[frequency] == null) {
+                bucket[frequency] = new ArrayList<>();
+            }
+            bucket[frequency].add(alphabet);
+        }
+
+        StringBuilder sb = new StringBuilder();
+
+        for (int i = bucket.length - 1; i >= 1; i--) {
+            if (bucket[i] != null) {
+                for (char alphabet : bucket[i]) {
+                    sb.append(String.valueOf(alphabet).repeat(i));
                 }
             }
-            for (int j = 0; j < highestFrequency; j++) {
-                s = s + highestFrequencyCharacter;
-            }
-            alphabetCountStore.put(highestFrequencyCharacter, 0);
         }
-
-        return s;
+        return sb.toString();
     }
 }
