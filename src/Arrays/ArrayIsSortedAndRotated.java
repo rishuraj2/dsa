@@ -1,4 +1,4 @@
-package Arrays;
+package arrays;
 
 public class ArrayIsSortedAndRotated {
     public static boolean check(int[] nums) {
